@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+<h1> Twitch Like an App Using React Router, forms and more !! </h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2> React Router </h2>
 
-## Available Scripts
+*   react router only cares about what written after slash not the host name.
+ 
+*   BrowserRoute component communicates with history component and then communicates with Route
+    component and these/this Route/s component will render the data according to the mentioned path
 
-In the project directory, you can run:
+    <img src="https://ncoughlin.com/static/f0a60a719be3f7c71e060208204d7319/74549/1.png"/>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    </br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h2> Properties of Route Component </h2>
+    1.  Path 
+    2.  Component 
+    3.  Exact
 
-### `npm test`
+<h3> Behavior of app without Exact </h3>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ * As react router only cares about what writtens after "/", it may check wheter this method 
+   -> extractedPath.contains(path) returns true or not. Refer Images below for more explainations.,,
+   <img src="https://i.stack.imgur.com/pdnn6.jpg"/>
 
-### `npm run build`
+</br>
+   <img src="https://i.stack.imgur.com/Ols7l.jpg"/>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+</br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+So when we are using exact property in the Route Component our comparison method changes from 
+</br>
+        <h3> extractedPath.contains(path) </h3> </br> to  </br> <h3> extractedPath === path </h3>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h2> BAD Approach to handle navigation In react !!! </h2>
 
-### `npm run eject`
+We should never use anchor tag ( "<a href="">" )to navigate on diffrent pages in our application
+because it is <b> Removing all the states and data from our app and renderes brand new requested page with empty data containers </b>. 
+<img src="https://user-images.githubusercontent.com/14003377/61182238-0126e000-a620-11e9-9a4e-67c22d082d95.png"/>
+</br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<h2> Solution or Proper way ?? </h2>
+<h3> Use Link Component from react-router-dom </h3>
+    * it prevents rendering new html file. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
